@@ -6,22 +6,24 @@
 
 Нужен Python 3.12 или новее. Все импорты из стандартной библиотеки, поэтому `requirements.txt` не содержит сторонних пакетов.
 
-Откройте терминал в папке репозитория.
+Откройте терминал в папке репозитория, создайте и активируйте виртуальное окружение.
 
 **Windows (PowerShell)**
 
 ```powershell
 py -3 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe download_benchmark.py "https://speed.cloudflare.com/__down?bytes=1000000"
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python download_benchmark.py "https://speed.cloudflare.com/__down?bytes=1000000"
 ```
 
 **macOS и Linux**
 
 ```bash
 python3 -m venv .venv
-./.venv/bin/python -m pip install -r requirements.txt
-./.venv/bin/python download_benchmark.py "https://speed.cloudflare.com/__down?bytes=1000000"
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python download_benchmark.py "https://speed.cloudflare.com/__down?bytes=1000000"
 ```
 
 С тестовым адресом скрипт скачает 10 000 000 байт за десять запросов. Чтобы проверить другой ресурс, подставьте его прямой HTTP- или HTTPS-адрес. При ошибке или перенаправлении скрипт останавливается и показывает номер запроса.
